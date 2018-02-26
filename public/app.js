@@ -16,13 +16,13 @@ angular.module('mainApp', ['ngRoute', 'ngMessages', 'satellizer'])
 			})
 			.otherwise('/chat');
 
-		$authProvider.loginUrl = 'http://localhost:3000/auth/login';
-		$authProvider.signupUrl = 'http://localhost:3000/auth/signup';
+		$authProvider.loginUrl = 'https://mainchatapp.herokuapp.com/auth/login';
+		$authProvider.signupUrl = 'https://mainchatapp.herokuapp.com/auth/signup';
 		$authProvider.oauth2({
 		  name: 'instagram',
-		  url: 'http://localhost:3000/auth/instagram',
-		  redirectUri: 'http://localhost:3000',
-		  clientId: '65f439be04b741bc862286c1bb630246',
+		  url: 'https://mainchatapp.herokuapp.com/auth/instagram',
+		  redirectUri: 'https://mainchatapp.herokuapp.com',
+		  clientId: 'dc4d6a7ecd0248e7a896434f86a816c3',
 		  requiredUrlParams: ['scope'],
 		  scope: ['likes'],
 		  scopeDelimiter: '+',
