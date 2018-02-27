@@ -1,3 +1,25 @@
+#textMsgBtn{
+  position: fixed;
+  bottom: 2px;
+  right: 2px;
+  height: 10%;
+}
+
+
+#textMsg{
+  width: 65%;
+  position: fixed;
+  bottom: 2px;
+}
+
+.col-8{
+  margin-left: -28px;
+}
+
+a{
+  style:none;
+  color: black;
+}
 h4{
   display: inline-block;
   margin-left: 5px;

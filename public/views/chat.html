@@ -1,17 +1,24 @@
 <div ng-if="isAuthenticated() && currentUser.username">
   <div class="row">
-      <nav class="navbar navbar-light alert-dark col-4">
+    <div class="col-4">
+      <nav class="navbar navbar-light alert-dark">
         <a class="navbar-brand" href="#"><img class="media-object img-rounded" ng-src="{{currentUser.picture}}"></a>
-          <ul class="navbar-nav">
-            <li class="nav-item"><strong>{{currentUser.fullName}}</strong>  <a href="" ng-click="logout()">logout</a></li>
-          </ul>
+        <ul class="navbar-nav">
+          <li class="nav-item"><strong>{{currentUser.fullName}}</strong>  <a href="" ng-click="logout()">logout</a></li>
+        </ul>
       </nav>
-      <nav class="navbar navbar-light alert-dark col-8">
+      <div class="card" ng-repeat="name in data">
+      <a href="#"><img class="media-object img-rounded" ng-src="{{name.picture}}"><h4>{{name.fullName}}</h4></a>
+    </div>
+    </div>
+
+    <div class="col-8">
+      <nav class="navbar navbar-light alert-dark">
         <a class="navbar-brand" href="#"><img class="media-object img-rounded" ng-src="{{currentUser.picture}}"></a>
       </nav>
-  </div>
-  <div class="card col-4" ng-repeat="name in data">
-     <img class="media-object img-rounded" ng-src="{{name.picture}}"><h4>{{name.fullName}}</h4>
+      <textarea class="form-control" id="textMsg"></textarea>
+      <button class="btn alert-dark" id="textMsgBtn">Send</button>
+    </div>
   </div>
 </div>
 
