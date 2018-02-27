@@ -10,6 +10,9 @@
         <a class="navbar-brand" href="#"><img class="media-object img-rounded" ng-src="{{currentUser.picture}}"></a>
       </nav>
   </div>
+  <div class="card col-4" ng-repeat="name in data">
+     <img class="media-object img-rounded" ng-src="{{name.picture}}"><h4>{{name.fullName}}</h4>
+  </div>
 </div>
 
 <div ng-if="!isAuthenticated()">

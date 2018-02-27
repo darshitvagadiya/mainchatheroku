@@ -2,6 +2,10 @@ angular.module('mainApp')
   .controller('ChatCtrl', function($scope, $location, $window, $rootScope, $auth, API) {
 
 	if ($auth.isAuthenticated() && ($rootScope.currentUser && $rootScope.currentUser.username)) {
+		API.getFeed().then(function(data){
+			$scope.data = data.data;
+		});	
+
 		$scope.logout = function() {
 	      $auth.logout();
 	      delete $window.localStorage.currentUser;

@@ -178,9 +178,8 @@ app.get('/api/chat', isAuthenticated, function(req, res){
         var userMap = {};
 
         users.forEach(function(user){
-            userMap[user.fullName] = user;
+            userMap[user] = user;
         });
-        console.log(userMap);
         res.send(userMap);
     })
 });
