@@ -7,8 +7,11 @@ angular.module('mainApp')
 		});	
 
 		$scope.logout = function() {
-	      $auth.logout();
-	      delete $window.localStorage.currentUser;
+			API.deleteUser().then(function(){
+				$auth.logout();
+				delete $window.localStorage.currentUser;
+				$location.path('/');
+			});
 	    };
 	}
 

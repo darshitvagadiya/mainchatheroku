@@ -184,6 +184,14 @@ app.get('/api/chat', isAuthenticated, function(req, res){
     })
 });
 
+app.get('/api/logout', isAuthenticated, function(req, res){
+    console.log('User Id', req.user._id);
+    User.findByIdAndRemove(req.user._id, function(err){
+    if(err) res.send(err);
+    res.json({ message: 'User Deleted!'});
+   })
+});
+
 
 server.listen(port, function(){
 	console.log(`server is running on ${port}`);
