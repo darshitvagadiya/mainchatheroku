@@ -5,7 +5,7 @@ angular.module('mainApp')
 				return $http.get('https://mainchatapp.herokuapp.com/api/chat');
 			},
 			deleteUser: function(){
-				return $http.get('http://mainchatapp.herokuapp.com/api/logout');
+				return $http.get('https://mainchatapp.herokuapp.com/api/logout');
 			}
 		}
 	});
