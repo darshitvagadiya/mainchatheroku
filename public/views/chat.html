@@ -16,8 +16,11 @@
       <nav class="navbar navbar-light alert-dark">
         <a class="navbar-brand" href="#"><img class="media-object img-rounded" ng-src="{{currentUser.picture}}"></a>
       </nav>
-      <textarea class="form-control" id="textMsg"></textarea>
-      <button class="btn alert-dark" id="textMsgBtn">Send</button>
+      <div class="card" id="msgBox"></div> 
+      <form id="message-form">
+        <textarea name="message" class="form-control" id="textMsg"></textarea>
+        <button class="btn alert-dark" id="textMsgBtn">Send</button>
+      </form>
     </div>
   </div>
 </div>

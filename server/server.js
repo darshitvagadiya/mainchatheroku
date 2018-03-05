@@ -24,6 +24,14 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, '../public')));
 
+var generateMessage = function(from, text){
+    return{
+        from,
+        text,
+        createdAt: new Date().getTime()
+    }
+};
+
 function createToken(user) {
   var payload = {
     exp: moment().add(14, 'days').unix(),
@@ -190,6 +198,24 @@ app.get('/api/logout', isAuthenticated, function(req, res){
     if(err) res.send(err);
     res.json({ message: 'User Deleted!'});
    })
+});
+
+io.on('connection', function(socket, req, res){
+    console.log('New user connected');
+
+    socket.emit('welcome', generateMessage('Admin', 'Welcome to the chat app'));
+
+    socket.broadcast.emit('user', generateMessage('Admin', 'New user joined'));
+
+    socket.on('createMessage', function(message){
+        console.log('createMessage', message);
+        io.emit('newMessage', generateMessage(message.from, message.text));
+        // socket.broadcast.emit('newMessage', generateMessage(message.from, message.text));
+    });
+
+    socket.on('disconnect', function(){
+        console.log('User was disconnected');
+    });
 });
 
 

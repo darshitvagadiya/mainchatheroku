@@ -34,3 +34,36 @@ angular.module('mainApp', ['ngRoute', 'ngMessages', 'satellizer'])
 			$rootScope.currentUser = JSON.parse($window.localStorage.currentUser);
 		}
 	});
+
+	var socket = io();
+
+socket.on('connect', function(){
+	console.log('Connected to sockets');
+});
+
+socket.on('disconnect', function(){
+	console.log('Disconnected from server');
+});
+
+socket.on('newMessage', function(message){
+	console.log('New message', message);
+});
+
+socket.on('welcome', function(data){
+	console.log(data);
+});
+
+socket.on('user', function(data){
+	console.log(data);
+});
+
+jQuery('#message').on('submit', function(e){
+	 e.preventDefault();
+
+	 socket.emit('createMessage', {
+	 	from: "User",
+	 	text: jQuery('[name=message]').val()
+	 }, function(){
+
+	 });
+}); 

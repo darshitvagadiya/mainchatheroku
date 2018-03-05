@@ -1,8 +1,13 @@
+#msgBox{
+  background-color: #FFFFBF;
+  height: 510px;
+}
+
 #textMsgBtn{
   position: fixed;
   bottom: 2px;
   right: 2px;
-  height: 10%;
+  height: 63px;
 }
 
 
